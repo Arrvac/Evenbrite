@@ -16,4 +16,4 @@ users = Array.new
 end
 
 
-Event.create(title: "namess", user: users.first, duration: 5, description: Faker::Lorem.sentence(word_count: 10) , price: 5, location: "oui")
+Event.create(title: "namess", user: users.first, duration: 5, description: Faker::Lorem.sentence(word_count: 10) , price: 5, location: "Paris")

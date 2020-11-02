@@ -54,3 +54,5 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'table_print'
 gem 'faker'
+gem "letter_opener", :group => :development
+gem 'dotenv-rails'
