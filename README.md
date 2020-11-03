@@ -1,24 +1,10 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# README
+An events website where you can create events and attend the ones that interest you.
 
-Things you may want to cover:
+* Ruby version 2.7.1
 
-* Ruby version
+* Find the app live on: http://thp-evenbrite.herokuapp.com/
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Bundle install may be required if gems are missing, as a: $yarn install --check-files
