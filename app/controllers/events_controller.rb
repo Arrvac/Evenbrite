@@ -1,6 +1,5 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :show, :edit, :destroy]
-  before_action :find_event, only: [:show]
 
   def index
     @events = Event.all
@@ -11,7 +10,13 @@ class EventsController < ApplicationController
   end
 
   def show
+    @event = find_event
+  end
 
+  def destroy
+    @event = find_event
+    @event.delete
+    redirect_to '/'
   end
 
   def create

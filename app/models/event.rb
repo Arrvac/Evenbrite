@@ -11,7 +11,11 @@ class Event < ApplicationRecord
   validates :location, presence: true
 
   def multiple_of_five?
-    errors.add(:duration, "Should be a multiple of 5.") unless duration % 5 == 0
+    res = self.duration % 5
+     if res.positive?
+       errors.add(:base, 'erreur date de durée')
+       false
+     end
   end
 
   def subscribe_event_mail

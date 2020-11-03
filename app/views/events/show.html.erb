@@ -2,11 +2,11 @@
     <div class="cover-container d-flex w-100 p-3 mx-auto flex-column">
         <div class="row">
           <div class="col-md-12">
-            <h1 class="display-5"> My gossip title: <%= @event.title%> </h1>
-            <p class="lead"> Written by user: <%= link_to @event.user.first_name, "/users/#{@event.user.id}" %>
+            <h1 class="display-5"> Event title: <%= @event.title%> </h1>
+            <p class="lead"> Admin: <%= link_to @event.user.first_name, "/users/#{@event.user.id}" %>
             <% if @event.user == current_user%>
                 <p class="nav-link active">
-                    oui
+                    <%= link_to 'Delete', event_path(@event), method: :delete, data: {confirm: 'Are you sure?'}%>
                 </p>
             <% end%>
           </div>

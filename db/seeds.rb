@@ -9,11 +9,10 @@
 Event.destroy_all
 User.destroy_all
 
-users = Array.new
-
 10.times do
-    users << User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email(domain: 'yopmail.com'))
+  User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email(domain: 'yopmail.com'), password: "password")
 end
 
-
-Event.create(title: "namess", user: users.first, duration: 5, description: Faker::Lorem.sentence(word_count: 10) , price: 5, location: "Paris")
+10.times do
+  Event.create(title: Faker::Lorem.sentence(word_count: 2), user: User.all.sample, duration: 5, description: Faker::Lorem.sentence(word_count: 10) , price: 5, location: "Paris")
+end
