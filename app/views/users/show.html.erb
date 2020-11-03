@@ -1,3 +1,13 @@
-<p>
-coucou
-</p>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-3">
+      <h1 class="display-4">
+        <%= @user.first_name %>
+        <%= @user.last_name %>
+      </h1> 
+      <p class="lead">
+        <%= @user.email %>
+      </p>
+    </div>
+  </div>
+</div>

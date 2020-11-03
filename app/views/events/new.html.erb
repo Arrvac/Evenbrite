@@ -1,0 +1,42 @@
+<div class="container">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <%= form_for @event do |f| %>
+      <% if @event.errors.any? %>
+      <h4><%= pluralize(@event.errors.count, "error") %> prevented this message from saving</h4>
+        <ul>
+          <% @event.errors.full_messages.each do |msg| %>
+          <li>
+            <%= msg %>
+          </li>
+            <% end %>
+        </ul>
+        <% end %>
+    <div class="form-group">
+        <label>Titre de l'event </label>
+        <%= f.text_field :title, class: 'form-control'%>
+    </div>
+    <div class="form-group">
+        <label>Date de l'event</label>
+        <%= f.date_field :start_date, class: 'form-control'%>
+    </div>
+    <div class="form-group">
+        <label>Durée de l'event</label>
+        <%= f.time_field :duration, class: 'form-control'%>
+    </div>
+    <div class="form-group">
+        <label>Description de l'event</label>
+        <%= f.text_area :description, class: 'form-control'%>
+    </div>
+    <div class="form-group">
+        <label>Prix</label>
+        <%= f.text_field :price, class: 'form-control'%>
+    </div>
+    <div class="form-group">
+        <label>Localisation</label>
+        <%= f.text_field :location, class: 'form-control'%>
+    </div>
+        <div class="form-group">
+        <button type="submit" class="btn btn-primary">Valider</button>
+    </div>
+    <% end %>
+</div>
