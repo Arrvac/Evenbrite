@@ -56,3 +56,4 @@ gem 'table_print'
 gem 'faker'
 gem "letter_opener", :group => :development
 gem 'dotenv-rails'
+gem 'devise', '~> 4.2'
