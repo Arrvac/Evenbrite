@@ -11,7 +11,9 @@
                                 <%= @user.first_name%> <%= @user.last_name %>
                                 </h6>
                                 <p>THP Designer</p> <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
-                                <p><%= link_to "(edit password)", edit_user_registration_path(@user) %></p> <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
+                                <% if current_user == @user %>
+                                    <p><%= link_to "(Change my password)", edit_user_registration_path(@user) %></p> <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
+                                <% end %>
                             </div>
                         </div>
                         <div class="col-sm-8">
@@ -30,8 +32,10 @@
                                 <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Projects</h6>
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <p class="m-b-10 f-w-600">Recent</p>
-                                        <h6 class="text-muted f-w-400">Sam Disuja</h6>
+                                        <p class="m-b-10 f-w-600">Event</p>
+                                        <% @user.events.each do |e| %>
+                                            <h6 class="text-muted f-w-400"><%= e.title %></h6>
+                                        <% end %>
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="m-b-10 f-w-600">Most Viewed</p>

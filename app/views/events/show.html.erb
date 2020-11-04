@@ -11,6 +11,9 @@
               Place: <%= @event.location%> | Price: <%= @event.price%> $
             </p>
             <p class="lead"> Admin: <%= link_to @event.user.first_name, "/users/#{@event.user.id}" %></p>
+            <% if !@event.users.include?(current_user) && current_user != @event.user%>
+               <p> INSCRIT TOI</p>
+            <% end %>
             <% if @event.user == current_user%>
                 <p class="nav-link active">
                     <%= link_to 'Delete', event_path(@event), method: :delete, data: {confirm: 'Are you sure?'}%>
