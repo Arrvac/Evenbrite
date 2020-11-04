@@ -12,11 +12,15 @@
             </p>
             <p class="lead"> Admin: <%= link_to @event.user.first_name, "/users/#{@event.user.id}" %></p>
             <% if !@event.users.include?(current_user) && current_user != @event.user%>
+              <% if @event.is_free? %>
+                  <%= link_to 'Subscribe', event_attendances_path(@event), method: :create%>
+              <% else %>
                   <%= link_to 'Subscribe', new_event_attendance_path(@event)%>
+              <% end %>
             <% end %>
             <% if @event.user == current_user%>
                 <p class="nav-link active">
-                    <%= link_to 'Delete', event_path(@event), method: :delete, data: {confirm: 'Are you sure?'}%>
+                    <%= link_to 'Mon espace Evenement', attendances_path %>
                 </p>
             <% end%>
           </div>

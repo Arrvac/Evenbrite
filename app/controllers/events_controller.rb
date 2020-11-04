@@ -9,6 +9,16 @@ class EventsController < ApplicationController
     @event = Event.new
   end
 
+  def edit
+    @event = find_event
+  end
+
+  def update
+    @event = find_event
+    @event.update(events_params)
+    redirect_to @event
+  end
+
   def show
     @event = find_event
   end

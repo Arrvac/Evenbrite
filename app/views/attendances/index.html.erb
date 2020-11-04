@@ -1,0 +1,17 @@
+<div class="container justify-content-center ">
+  <div class="row text-center">
+    <div class="col-md-6 offset-md-3">
+        <% current_user.events.each do |e| %>
+            Evenement : <%= e.title %>
+            <%= link_to '(Delete)', event_path(e), method: :delete, data: {confirm: 'Are you sure?'}%>
+            | 
+            <%= link_to '(edit)', edit_event_path(e)%>
+            <p> - 
+            <% e.users.each do |u| %>
+                <%= u.first_name %>, 
+            <% end %>
+            </p>
+        <% end %>
+    </div>
+  </div>
+</div>

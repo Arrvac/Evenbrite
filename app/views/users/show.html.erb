@@ -13,6 +13,7 @@
                                 <p>THP Designer</p> <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
                                 <% if current_user == @user %>
                                     <p><%= link_to "(Change my password)", edit_user_registration_path(@user) %></p> <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
+                                    <p> <%= link_to 'Mon espace Evenement', attendances_path %> </p>
                                 <% end %>
                             </div>
                         </div>

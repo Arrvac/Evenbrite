@@ -1,4 +1,6 @@
 class AttendancesController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :show, :edit, :destroy]
+
   def new
     @event_id = Event.find(params[:event_id])
     @attendance = Attendance.new
@@ -15,6 +17,7 @@ class AttendancesController < ApplicationController
   end
 
   def show
+    @attendance = Attendance.find(params[:id])
   end
 
   def edit
