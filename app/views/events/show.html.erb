@@ -1,28 +1,31 @@
-<div class="container-fluid text-center">
+<div class="container text-center">
     <div class="cover-container d-flex w-100 p-3 mx-auto flex-column">
         <div class="row">
           <div class="col-md-12">
-            <h1 class="display-5"> Event title: <%= @event.title%> </h1>
-            <p class="lead"> <%= @event.description%></p>
-            <p class="lead">
-              Start: <%= @event.start_date%> | Duration: <%= @event.duration%>
-            </p>
-            <p class="lead">
-              Place: <%= @event.location%> | Price: <%= @event.price%> $
-            </p>
-            <p class="lead"> Admin: <%= link_to @event.user.first_name, "/users/#{@event.user.id}" %></p>
-            <% if !@event.users.include?(current_user) && current_user != @event.user%>
-              <% if @event.is_free? %>
-                  <%= link_to 'Subscribe', event_attendances_path(@event), method: :create%>
-              <% else %>
-                  <%= link_to 'Subscribe', new_event_attendance_path(@event)%>
-              <% end %>
-            <% end %>
-            <% if @event.user == current_user%>
-                <p class="nav-link active">
-                    <%= link_to 'Mon espace Evenement', attendances_path %>
-                </p>
-            <% end%>
+            <!-- Blog Post -->
+            <div class="card mb-4">
+              <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
+              <div class="card-body">
+                <h2 class="card-title"><%= @event.title%></h2>
+                <p class="card-text">Place: <%= @event.location%> | Price: <%= @event.price%> $</p>
+                <img class="card-img-top" src="https://picsum.photos/id/<%= rand(1..99) %>/500/230" alt="Card image cap">
+                <p class="card-text"><%= @event.description%></p>
+                <% if !@event.users.include?(current_user) && current_user != @event.user%>
+                  <% if @event.is_free? %>
+                      <%= link_to 'Subscribe', event_attendances_path(@event), method: :create, class: "btn btn-primary"%>
+                  <% else %>
+                      <%= link_to 'Subscribe', new_event_attendance_path(@event), class: "btn btn-primary"%>
+                  <% end %>
+                <% end %>
+                <% if @event.user == current_user%>
+                      <%= link_to 'Mon espace Evenement', attendances_path, class: "btn btn-primary"%>
+                <% end%>
+              </div>
+              <div class="card-footer text-muted">
+                Takes place on "<%= @event.start_date %>" lasts for <%= @event.duration%> min, Administrated by 
+                <%= link_to @event.user.first_name, "/users/#{@event.user.id}" %>
+              </div>
+            </div>
           </div>
         </div>
     </div>

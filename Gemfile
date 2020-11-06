@@ -58,3 +58,5 @@ gem "letter_opener", :group => :development
 gem 'dotenv-rails'
 gem 'devise', '~> 4.2'
 gem 'stripe'
+gem 'rails_admin', git: 'https://github.com/sferik/rails_admin.git'
+gem 'cancancan'
